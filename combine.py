@@ -93,13 +93,16 @@ def main():
             DH_hist += loaded['DH_hist']
             DA_hist += loaded['DA_hist']
             DH_realizations = np.concatenate((DH_realizations,loaded['DH_realizations']),axis=1)
-            if phi_hist is not None:
+            if np.any(phi_hist==None):
+                pass
+            else:
                 phi_hist += loaded['phi_hist']
                 f_hist += loaded['f_hist']
-            if de_hist is not None:
+            if np.any(de_hist==None):
+                pass
+            else:
                 de_hist += loaded['de_hist']
                 w_hist += loaded['w_hist']
-                w_hist += np.zeros_like(DH_hist)
             #print q_hist
             #if q_hist is None:
             #    print 5

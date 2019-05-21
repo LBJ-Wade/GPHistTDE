@@ -434,7 +434,6 @@ class BOSS2018PosteriorVardrag(Posterior):
     """
     def __init__(self,name,zpost,mean,cov,rsdrag):
         self.rsdrag = rsdrag
-        mean = mean[:,np.newaxis]
         self.pdf = GaussianPdf(mean,cov)
         Posterior.__init__(self,name,zpost)
     #new shape for mean and values for new covariance matrix
@@ -456,5 +455,4 @@ class BOSS2018PosteriorVardrag(Posterior):
         Hz = 2.99792458e5 /DHz *(self.rsdrag * DHz[-1]/1.9273724E-01) /rfid
         DMz = DAz *rfid /(self.rsdrag * DHz[-1]/1.9273724E-01)
         values = np.hstack([DMz,Hz])
-        values = values[:,:,np.newaxis]
         return self.pdf.get_nlp(values)
