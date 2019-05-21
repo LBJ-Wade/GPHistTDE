@@ -414,7 +414,7 @@ class BOSS2018Posterior(Posterior):
         Returns:
             ndarray: Array of -log(prob) values calculated at each input value.
         """
-        rfid = 147.78+1.5
+        rfid = 149.28
         Hz = 2.99792458e5 /DHz *self.rsdrag /rfid
         DMz = DAz *rfid /self.rsdrag
         values = np.hstack([DMz,Hz])
@@ -452,7 +452,7 @@ class BOSS2018PosteriorVardrag(Posterior):
         """
 		#scaling rsdrag by DHz*
 		# needs to be fixed as DHz[-1] is not DHz*
-        rfid = 147.78+1.5
+        rfid = 149.28
         Hz = 2.99792458e5 /DHz *(self.rsdrag * DHz[-1]/1.9273724E-01) /rfid
         DMz = DAz *rfid /(self.rsdrag * DHz[-1]/1.9273724E-01)
         values = np.hstack([DMz,Hz])
